@@ -55,18 +55,27 @@ Raw features may not be a good or suitable input for the model. How to embed the
 
 Starting from some simple models (Auto-Encoder, Multi-Layer Perceptron) to have a general ideas that how capable the model is. And then we can add more useful modules and leverage some tricks to enhance the feature extraction. 
 
-For example, we can introduce Graph Neural 
+There are some examples that we can implement in spatial omics.
 
+* Adding Graph Neural Network to introduce the structure information and utilizing message passing manchism to aggregate neighboring information from surrounding nodes to anchor node.
+* Leveraging bottleneck autoencoder to introduce the reconstruction loss to denoising the feature that model extracted.
+* Incorporating varational autoencoder to utilize variational inference techniques to approximate the true posterior distribution of latent variables given the observed data.
 
 ## Model Evaluation
 
+Model evaluation helps determine if the models are capable of making accurate predictions. We can use various metrics like accuracy and sensitivity for classification, mean squared error and Pearsonr correlation for regression. For some specific case, we need to customise metric to better reflect the model performance. 
 
-
+Once we developed the model with reasonable performance, we can use cross-validation to unbiasedly measure the model performance. 
 
 
 ## Deployment
 
+If the model meets the desired performance criteria, we can deploy our software on the website to provide user-friendly
+
+service and draw more attention from stakeholders.
 
 
 
 ## Insights and Action
+
+We can communicate our key findings to stakeholders and decision-makers (patients and medical staff), enabling them to make data-driven decisions. These insights can drive early dignosis, treatment strategy to help patients prevent the disease and prolong the survival time.
