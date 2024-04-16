@@ -22,16 +22,23 @@ To validate our hypothesis, we list 3 key aims to achieve the goal:
 We have five modalities for the data resource.
 
 * Tumor genomics data
+
   * WGS (Whole genome sequencing)
   * String data
 * DNA methylation data
+
   * EPIC array
 * Chromatin data
+
   * ATAC-seq
 * RNAdata
+
   * sc-RNA-seq
 * Phospho-and proteomic profiling
+
   * Proteomics
+
+![1713242652211](image/README/1713242652211.png)
 
 ## Exploratory Data Analysis
 
