@@ -1,1 +1,1 @@
-test
+This folder will include the implementation of DNA methylation analysis.

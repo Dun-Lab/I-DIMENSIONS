@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_85d5793e5f05c9768cbe4fca626cd2e8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+    <style>
+        @font-face {
+            font-family: "Sebino Regular";
+            src: url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.eot");
+            src: url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.eot?#iefix")format("embedded-opentype"),
+            url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.woff2")format("woff2"),
+            url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.woff")format("woff"),
+            url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.ttf")format("truetype"),
+            url("https://db.onlinewebfonts.com/t/4e2a44223ab20891f50f16b7f54b595f.svg#Sebino Regular")format("svg");
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .vision {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Sebino Regular', sans-serif;
+        }
+
+        .about {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Sebino Regular', sans-serif;
+        }
+
+
+        .navbar {
+            background-color: #164F66 !important;
+        }
+
+        .jumbotron {
+            background: linear-gradient(to right, #164F66, #0e809e);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+        }
+
+        .jumbotron .btn {
+            background-color: white;
+            color: #164F66;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+
+        .jumbotron .btn:hover {
+            background-color: #164F66;
+            color: white;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #343a40;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+
+        .institutions {
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+            font-family: 'Courier New', sans-serif; /* Change font family as needed */
+        }
+
+        .institutions h2 {
+            margin-bottom: 5px;
+            font-size: 24px; /* Adjust the font size as needed */
+            font-family: 'Courier New', Courier, monospace; /* Change font family as needed */
+
+        }
+
+        .institutions img {
+            margin: 0 auto;
+            display: block;
+            width: 70%; /* Adjust the width as needed */
+        }
+
+        .tools {
+            padding: 50px 0;
+            background-color: #fff;
+            font-family: 'Sebino Regular', sans-serif;
+            flex: 1;
+            padding: 20px;
+
+        }
+        .tools-box {
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+            background-color: #f8f9fa;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">DMG-ADAPTS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members.html">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Tools</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Pipelines
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="scripts/Differential_methylation_analysis.html">Differential methylation analysis</a>
+                        <a class="dropdown-item" href="scripts/Methylation_clustering_analysis.html">Methylation clustering analysis</a>
+                        <a class="dropdown-item" href="scripts/H&E_imaging_analysis.html">H&E imaging analysis</a>
+                        <a class="dropdown-item" href="scripts/WGS_analysis.html">WGS analysis</a>
+                        <a class="dropdown-item" href="scripts/DL_subtyping.html">DMG subclassification</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    
+    
+            <div class="folium-map" id="map_85d5793e5f05c9768cbe4fca626cd2e8" ></div>
+
+                <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Developed by Yuanhao Jiang & Clara Savary</p>
+            <p>Cancer Signalling Research Group, Dun Lab, University of Newcastle, Australia</p>
+            <a href="https://github.com/Dun-Lab/ADAPTS" class="external-link" style="color: #72CD9A;"><i class="fab fa-github"></i> Visit our GitHub
+            </a>
+        </div>
+    </footer>
+        
+            <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+<script>
+    
+    
+            var map_85d5793e5f05c9768cbe4fca626cd2e8 = L.map(
+                "map_85d5793e5f05c9768cbe4fca626cd2e8",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2f64e9bdb11da684e7d13cb3ecfd266c = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+            var marker_0e32c8ee212367b30b17d1ae4076387a = L.marker(
+                [-33.917, 151.231],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_df7c946d2162c1821b54995894ab662a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_52c223f86ae637ddbc4bf46cb81041d0 = $(`<div id="html_52c223f86ae637ddbc4bf46cb81041d0" style="width: 100.0%; height: 100.0%;">Fa Valdes-Mora, Cancer Epigenetic Biology and Therapeutics group, Children’s Cancer Institute, Australia</div>`)[0];
+            popup_df7c946d2162c1821b54995894ab662a.setContent(html_52c223f86ae637ddbc4bf46cb81041d0);
+        
+
+        marker_0e32c8ee212367b30b17d1ae4076387a.bindPopup(popup_df7c946d2162c1821b54995894ab662a)
+        ;
+
+        
+    
+    
+            var marker_8973b773380723d4092d31e368e1c9a1 = L.marker(
+                [49.569, 11.007],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_f26ff92acac4dc19cf373a61ef5efb4f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_98b68c5cbb61f085fcb18ea0cd359d3a = $(`<div id="html_98b68c5cbb61f085fcb18ea0cd359d3a" style="width: 100.0%; height: 100.0%;">Dieter Henrik Heiland, The MILO laboratory, Friedrich-Alexander Universität (FAU) Erlangen-Nürnberg, Germany</div>`)[0];
+            popup_f26ff92acac4dc19cf373a61ef5efb4f.setContent(html_98b68c5cbb61f085fcb18ea0cd359d3a);
+        
+
+        marker_8973b773380723d4092d31e368e1c9a1.bindPopup(popup_f26ff92acac4dc19cf373a61ef5efb4f)
+        ;
+
+        
+    
+    
+            var marker_4fae1faa8581029ebdc202bccfdaacd3 = L.marker(
+                [45.504, -73.577],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_c21465fd21ad3446f0d6b5195ccce786 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_df27f38e581c02c8359299ce544f3d25 = $(`<div id="html_df27f38e581c02c8359299ce544f3d25" style="width: 100.0%; height: 100.0%;">Nada Jabado, Nada Jabado Laboratory, McGill institute, Canada</div>`)[0];
+            popup_c21465fd21ad3446f0d6b5195ccce786.setContent(html_df27f38e581c02c8359299ce544f3d25);
+        
+
+        marker_4fae1faa8581029ebdc202bccfdaacd3.bindPopup(popup_c21465fd21ad3446f0d6b5195ccce786)
+        ;
+
+        
+    
+    
+            var marker_6bfd0f17044c658214db51e945188bbe = L.marker(
+                [46.52, 6.567],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_5497e6a4c641b441b8209541cb294d3a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c15cbd4a3da69c0cc410fac2df93d595 = $(`<div id="html_c15cbd4a3da69c0cc410fac2df93d595" style="width: 100.0%; height: 100.0%;">Sebastian Waszak, Waszak Lab, École Polytechnique Fédérale de Lausanne, Switzerland</div>`)[0];
+            popup_5497e6a4c641b441b8209541cb294d3a.setContent(html_c15cbd4a3da69c0cc410fac2df93d595);
+        
+
+        marker_6bfd0f17044c658214db51e945188bbe.bindPopup(popup_5497e6a4c641b441b8209541cb294d3a)
+        ;
+
+        
+    
+    
+            var marker_41d4e1f38a2189c675445eed2a040124 = L.marker(
+                [37.763, -122.458],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_336e52a88eb3026ed1c282423d810e35 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b50defa11f7e0754b8107e9a5ae948ac = $(`<div id="html_b50defa11f7e0754b8107e9a5ae948ac" style="width: 100.0%; height: 100.0%;">Sabine Mueller, University of California San Francisco, United States</div>`)[0];
+            popup_336e52a88eb3026ed1c282423d810e35.setContent(html_b50defa11f7e0754b8107e9a5ae948ac);
+        
+
+        marker_41d4e1f38a2189c675445eed2a040124.bindPopup(popup_336e52a88eb3026ed1c282423d810e35)
+        ;
+
+        
+    
+    
+            var marker_575fdbe964f7e4f63e035aa5406c20ad = L.marker(
+                [47.609, -122.33],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_6e2fbbefce99b12bbc4b63b61398f9b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c0abc4f1a7f02eed8ea4539474a59ba8 = $(`<div id="html_c0abc4f1a7f02eed8ea4539474a59ba8" style="width: 100.0%; height: 100.0%;">Nick Vitanza, Vitanza Lab, Seattle Children’s Research Institute, United States</div>`)[0];
+            popup_6e2fbbefce99b12bbc4b63b61398f9b5.setContent(html_c0abc4f1a7f02eed8ea4539474a59ba8);
+        
+
+        marker_575fdbe964f7e4f63e035aa5406c20ad.bindPopup(popup_6e2fbbefce99b12bbc4b63b61398f9b5)
+        ;
+
+        
+    
+    
+            var marker_f88a5c284ca695bf3da71ad18b5a9078 = L.marker(
+                [-33.917, 151.231],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_7dddeddda258fe185f56908f05b7cc69 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_66a6e6db295bdde91a1728c0fdadc42d = $(`<div id="html_66a6e6db295bdde91a1728c0fdadc42d" style="width: 100.0%; height: 100.0%;">Rob Salomon, University of New South Wales, Australia</div>`)[0];
+            popup_7dddeddda258fe185f56908f05b7cc69.setContent(html_66a6e6db295bdde91a1728c0fdadc42d);
+        
+
+        marker_f88a5c284ca695bf3da71ad18b5a9078.bindPopup(popup_7dddeddda258fe185f56908f05b7cc69)
+        ;
+
+        
+    
+    
+            var marker_b96a989549280fef7566259fa4530a87 = L.marker(
+                [-33.917, 151.231],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_89b0b1c554f7d72499fadcf9a1fccb8d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a627154e63553d3bf16f682d7243ad6e = $(`<div id="html_a627154e63553d3bf16f682d7243ad6e" style="width: 100.0%; height: 100.0%;">Fa Valdes Mora & Mark Cowley, Children’s Cancer Institute, Australia</div>`)[0];
+            popup_89b0b1c554f7d72499fadcf9a1fccb8d.setContent(html_a627154e63553d3bf16f682d7243ad6e);
+        
+
+        marker_b96a989549280fef7566259fa4530a87.bindPopup(popup_89b0b1c554f7d72499fadcf9a1fccb8d)
+        ;
+
+        
+    
+    
+            var marker_62ff520533563e40d63fc3fd62ef5ac0 = L.marker(
+                [-31.98, 115.819],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_974e2a8390aa10fe6dee4f26a2e691d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_90a7e690b0f7025357a7af122ccc37c8 = $(`<div id="html_90a7e690b0f7025357a7af122ccc37c8" style="width: 100.0%; height: 100.0%;">Santosh Valvi, The University of Western Australia, Australia</div>`)[0];
+            popup_974e2a8390aa10fe6dee4f26a2e691d7.setContent(html_90a7e690b0f7025357a7af122ccc37c8);
+        
+
+        marker_62ff520533563e40d63fc3fd62ef5ac0.bindPopup(popup_974e2a8390aa10fe6dee4f26a2e691d7)
+        ;
+
+        
+    
+    
+            var marker_0ebeed822bc45df8c16687cde0c0248b = L.marker(
+                [-32.892, 151.702],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_8cfb366fa87736879d27f6c457368a14 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c3bff35abcc93b8992d2de48d5737657 = $(`<div id="html_c3bff35abcc93b8992d2de48d5737657" style="width: 100.0%; height: 100.0%;">Matthew D. Dun, University of Newcastle, Australia</div>`)[0];
+            popup_8cfb366fa87736879d27f6c457368a14.setContent(html_c3bff35abcc93b8992d2de48d5737657);
+        
+
+        marker_0ebeed822bc45df8c16687cde0c0248b.bindPopup(popup_8cfb366fa87736879d27f6c457368a14)
+        ;
+
+        
+    
+    
+            var marker_273d37d38fecbc67c5aa370bed3023cc = L.marker(
+                [-22.275, 166.458],
+                {}
+            ).addTo(map_85d5793e5f05c9768cbe4fca626cd2e8);
+        
+    
+        var popup_ae9b5d38a5fdcbe6685c1d62704857f7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4f40efa28ea01e59446c53d08b7a7de4 = $(`<div id="html_4f40efa28ea01e59446c53d08b7a7de4" style="width: 100.0%; height: 100.0%;">Clara Savary, OmixAnalytics, Nouméa, New Caledonia</div>`)[0];
+            popup_ae9b5d38a5fdcbe6685c1d62704857f7.setContent(html_4f40efa28ea01e59446c53d08b7a7de4);
+        
+
+        marker_273d37d38fecbc67c5aa370bed3023cc.bindPopup(popup_ae9b5d38a5fdcbe6685c1d62704857f7)
+        ;
+
+        
+    
+</script>
+</html>
