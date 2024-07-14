@@ -20,6 +20,23 @@ https://opus.nci.org.au/pages/viewpage.action?pageId=230491359
 [Structural variants, DELLY](https://github.com/dellytools/delly)
 [CNVs, ACEseq](https://aceseq.readthedocs.io/en/latest/)
 
+Technical workflow:
+fastqc.sh
+assemble.sh
+polish.sh
+qc_assembly.sh
+reorder_contigs.sh
+mlst.sh
+amr.sh
+annotate.sh
+python get_annot_stats.py annotation_folder prefix
+dendogram.sh
+get_genome_gffs.sh
+get_pangenome.sh
+zip_results.sh
+
+
+
 
 
 
