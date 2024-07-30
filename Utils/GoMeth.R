@@ -214,7 +214,7 @@ gsameth <- function(sig.cpg, all.cpg=NULL, collection,
                                 several.ok = TRUE)
   
   if(length(genomic.features) > 1 & any(grepl("ALL", genomic.features))){
-    message("All input CpGs are used for testing.") 
+    # message("All input CpGs are used for testing.") 
     genomic.features <- "ALL"   
   } 
   
@@ -541,26 +541,76 @@ dotplot.enrichResult <- function(df, y = NULL, font.size = 18, title = "GO term 
 
 }
 
-gometh_plot <- function(sigCpGs=NULL, regulated=NULL, n=10, filename=NULL) {
-  # Identify go terms by given CpGs
-  gst_go <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=TRUE, 
+# gometh_plot <- function(sigCpGs=NULL, regulated=NULL, n=10, filename=NULL) {
+#   # Identify go terms by given CpGs
+#   gst_go <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=TRUE, 
+#                 collection = "GO", array.type="EPICv2", anno=annEPICv2)
+
+#   # Top n GO categories
+#   go_res <- topGSA(gst_go, number=n)
+#   go_res$GeneRatio <- go_res$DE / go_res$N # Calculate the ratio of DE genes to total genes within the GO category
+
+#   # Identify pathway by given CpGs
+#   gst_kegg <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=TRUE, 
+#                 collection = "KEGG", array.type="EPICv2", anno=annEPICv2)
+
+#   # Top n KEGG pathways
+#   kegg_res <- topGSA(gst_kegg, number=n)
+#   kegg_res$GeneRatio <- kegg_res$DE / kegg_res$N # Calculate the ratio of DE genes to total genes within the GO category
+
+#   # Identify pathway by given CpGs
+#   gst_kegg <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=TRUE, 
+#                 collection = GeneSet, array.type="EPICv2", anno=annEPICv2)
+
+#   # Top n KEGG pathways
+#   kegg_res <- topGSA(gst_kegg, number=n)
+#   kegg_res$GeneRatio <- kegg_res$DE / kegg_res$N # Calculate the ratio of DE genes to total genes within the GO category
+
+#   go_p <- dotplot.enrichResult(go_res, y = "TERM", title = "GO term analysis")
+#   kegg_p <- dotplot.enrichResult(kegg_res, y = "Description", title = "KEGG pathway analysis")
+#   return (list(go_p, kegg_p))
+# }
+
+gometh_plot <- function(sigCpGs=NULL, n=10, pathwaylist=NULL ) {
+
+    # Identify go terms by given CpGs
+    gst_go <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=FALSE, 
                 collection = "GO", array.type="EPICv2", anno=annEPICv2)
 
-  # Top n GO categories
-  go_res <- topGSA(gst_go, number=n)
-  go_res$GeneRatio <- go_res$DE / go_res$N # Calculate the ratio of DE genes to total genes within the GO category
+    # Top n GO categories
+    go_res <- topGSA(gst_go, number=n)
+    go_res$GeneRatio <- go_res$DE / go_res$N # Calculate the ratio of DE genes to total genes within the GO category
 
-  # Identify pathway by given CpGs
-  gst_kegg <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=TRUE, 
+    # Identify pathway by given CpGs
+    gst_kegg <- gometh(sig.cpg=sigCpGs, all.cpg=all, plot.bias=FALSE, 
                 collection = "KEGG", array.type="EPICv2", anno=annEPICv2)
 
-  # Top n KEGG pathways
-  kegg_res <- topGSA(gst_kegg, number=n)
-  kegg_res$GeneRatio <- kegg_res$DE / kegg_res$N # Calculate the ratio of DE genes to total genes within the GO category
+    # Top n KEGG pathways
+    kegg_res <- topGSA(gst_kegg, number=n)
+    kegg_res$GeneRatio <- kegg_res$DE / kegg_res$N # Calculate the ratio of DE genes to total genes within the GO category
 
-  go_p <- dotplot.enrichResult(go_res, y = "TERM", title = "GO term analysis")
-  kegg_p <- dotplot.enrichResult(kegg_res, y = "Description", title = "KEGG pathway analysis")
-  return (list(go_p, kegg_p))
+    go_p <- dotplot.enrichResult(go_res, y = "TERM", title = "GO term analysis")
+    kegg_p <- dotplot.enrichResult(kegg_res, y = "Description", title = "KEGG pathway analysis")
+    print(go_p)
+    print(kegg_p)
+
+    # Identify other pathway by given CpGs
+    res <- list()
+    res.plot <- list()
+    for (GeneSet in names(pathwaylist)){
+        gmt_file <- pathwaylist[[GeneSet]]
+        gmt <- gmtPathways(gmt_file)  # Load GMT file
+        tmp <- gsameth(sig.cpg = sigCpGs, all.cpg = all, collection = gmt, anno= annEPICv2,
+                plot.bias = FALSE, prior.prob = TRUE, sig.genes=TRUE, equiv.cpg=FALSE)
+        # Top n pathways in other gene sets
+        res[[GeneSet]] <- topGSA(tmp, number=n)
+        res[[GeneSet]]$GeneRatio <- res[[GeneSet]]$DE / res[[GeneSet]]$N # Calculate the ratio of DE genes to total genes within the GO category
+        res[[GeneSet]]$Description <- rownames(res[[GeneSet]])
+        res.plot[[GeneSet]] <- dotplot.enrichResult(res[[GeneSet]], y = "Description", title = paste(GeneSet, "gene set pathway analysis", sep = " "))
+        print(res.plot[[GeneSet]])
+    }
+
+    return (c(go_p, kegg_p, res.plot))
 }
 
 stat_signif_f <- function(tmp){

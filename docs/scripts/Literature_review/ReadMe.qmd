@@ -1,0 +1,43 @@
+---
+title: "Literature Review"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+# Outline
+Introduction to Brain Cancer Research
+
+* Brief history and milestones in brain cancer research.
+  * Overview of major types of brain cancers: Medulloblastoma, Glioblastoma, Glioma, etc.
+  * Importance of molecular subtyping in understanding brain cancer heterogeneity.
+  * Introduction to DMG (Differentially Methylated Genes)
+
+* Definition and significance of DMGs in cancer research.
+  * Importance of investigating DMGs in understanding biological processes, including cancer progression and treatment response.
+  * Current State of Research
+
+* Summary of existing literature on multi-omics DMG subtyping systems in brain cancer.
+  * Methods used in previous studies (e.g., data collection, multi-omics integration, analytical techniques).
+  * Identified challenges and limitations from previous studies (e.g., small sample sizes, lack of validation, computational challenges).
+
+* Research Gap
+  * Analysis of gaps in current literature:
+    * Insufficient integration of diverse datasets (e.g., genomic, transcriptomic, epigenomic).
+    * Need for standardized analytical pipelines for multi-omics data.
+    * Lack of consensus on DMG selection criteria and biological interpretation.
+
+* Future Directions
+  * Potential improvements and advancements:
+    * Expansion of dataset collections (e.g., inclusion of more diverse patient populations, longitudinal studies).
+    * Development of novel analytical strategies (e.g., machine learning approaches, network analysis).
+    * Validation of identified DMGs through functional assays or clinical correlation.
+  * Importance of collaboration and data sharing initiatives in advancing multi-omics research.
+
+* Conclusion
+  * Recapitulation of the importance of multi-omics DMG subtyping in advancing precision medicine for brain cancer.
+  * Call to action for future research directions to address current gaps and challenges.
+
+# Reading notes
+Organising soon.
